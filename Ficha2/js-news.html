@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<title>Ajax </title>
+</head>
+<body>
+<div class="container">
+	<h1>Ajax</h1>
+	<div class="well">
+		<p> <a href="index.html">Back to index</a> </p>
+		<p>Use the webservice</p>
+		<pre>https://newsapi.org</pre> to search for news from different sources.
+		<p>Allow the user to select one news source from the ones returned from
+			<pre>https://newsapi.org/v1/sources?country=us</pre>
+			The selected source
+			is used to fetch the news from the endpoint
+			<pre>https://newsapi.org/v1/articles?apiKey=6654c38654264552bfc3424d462aea2f&source=&lt;source&gt;</pre></p>
+		<p>
+			The returned object has a property "articles" with an array of objects.
+			These objects have the following properties:</p>
+			<ul>
+				<li>author</li>
+				<li>title</li>
+				<li>description</li>
+				<li>url</li>
+				<li>urlToImage</li>
+				<li>publishedAt</li>
+			</ul>
+		<p> <em>Note: Use a separate JavaScript code file "news.js"</em> </p>
+	</div>
+	<div class="row">
+		<form id="newsForm" action="#" class="form-horizontal" method="post" novalidate>
+			<div class="form-group">
+				<label class="control-label col-md-1" for="search">Source:</label>
+				<select id="source"></select>
+				<button type="submit" class="btn btn-primary">Get</button>
+			</div>
+		</form>
+	</div>
+	<div id="resultPanel" class="panel panel-success hidden">
+		<div class="panel-heading">
+    		<h3 class="panel-title">Search results for "<span>QUERY</span>"</h3>
+  		</div>
+		<div class="panel-body">
+			<div class="media">
+				<div class="media-left">
+					<a href="#">
+						<img alt="64x85" src="http://placehold.it/64x85" class="media-object" width="64" height="85">
+					</a>
+				</div>
+				<div class="media-body">
+					<h4 class="media-heading">Title </h4>
+					<p>news summary <small>author</small></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div><a href="https://newsapi.org">Powered by News API</a></div>
+</div>
+<script type="text/javascript" src=" . . . axios . . ."></script>
+<script type="text/javascript" src="js/news.js"></script>
+</body>
+</html>

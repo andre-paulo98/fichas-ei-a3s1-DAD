@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<link href="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.css" rel="stylesheet" type="text/css">
+	<title>DataTable</title>
+</head>
+<body>
+<div class="container">
+	<h1>DataTable (jQuery)</h1>
+	<div class="well">
+		<p> <a href="index.html">Back to index</a> </p>
+		<p>This exercise populates a data table with content from the webservice</p>
+		<pre>https://newsapi.org</pre> to search for news from different sources.
+		<p>Allow the user to select one news source from the ones returned from
+			<pre>https://newsapi.org/v1/sources?country=us</pre>
+			The selected source
+			is used to fetch the news from the endpoint
+			<pre>https://newsapi.org/v1/articles?apiKey=6654c38654264552bfc3424d462aea2f&source=&lt;source&gt;</pre></p>
+		<p>
+			The returned object has a property "articles" with an array of objects.
+			These objects have the following properties:</p>
+			<ul>
+				<li>publishedAt</li>
+				<li>author</li>
+				<li>title</li>
+				<li>description</li>
+				<li>url</li>
+				<li>urlToImage</li>
+			</ul>
+		<p> <em>Note: Use a separate JavaScript code file "datatable.js"</em> </p>
+	</div>
+	<div class="row">
+		<form id="newsForm" action="#" class="form-horizontal" method="post" novalidate>
+			<div class="form-group">
+				<label class="control-label col-md-1" for="search">Source:</label>
+				<select id="source"></select>
+				<button type="submit" class="btn btn-primary">Get</button>
+			</div>
+		</form>
+	</div>
+	<div id="resultPanel" class="panel panel-success hidden">
+		<div class="panel-heading">
+    		<h3 class="panel-title">Search results for "<span>QUERY</span>"</h3>
+  		</div>
+		<div class="panel-body">
+			<table id="newsTable" class="display" cellspacing="0" width="100%">
+		        <thead>
+		            <tr>
+		                <th>Date</th>
+						<th>Author</th>
+		                <th>Title</th>
+		                <th>Description</th>
+		                <th>Image</th>
+		            </tr>
+				</thead>
+				<tbody>
+
+				</tbody>
+		    </table>
+		</div>
+	</div>
+	<div><a href="https://newsapi.org">Powered by News API</a></div>
+</div>
+<script type="text/javascript" src=" . . . axios . . ."></script>
+<script type="text/javascript" src=" . . . moment . . ."></script>
+<script type="text/javascript" src=" . . . vanilla-datatables . . ."></script>
+
+<script type="text/javascript" src="js/datatable.js"></script>
+</body>
+</html>

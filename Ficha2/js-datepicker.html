@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.5.1/flatpickr.min.css" />
+    <title>Datepicker</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Datepicker</h1>
+        <div class="well">
+            <p> <a href="index.html">Back to index</a> </p>
+            <p>Displays four <strong>datepickers</strong> using the <a href="https://flatpickr.js.org/">Flatpickr Library</a> Widgets.</p>
+            <p>Two of the datepickers use the portuguese language. The other two are in english.</p>
+            <p>For each language there will be a version without any configuration and a version that allows <strong>only dates of the last month (from one month ago until today)</strong>.
+            <p><em>Note: Use a separate JavaScript code file: datepicker.js</em></p>
+        </div>
+        <form action="#">
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="date1">Date 1 (English - No Configuration)</label>
+                    <input type="text" class="form-control" id="date1">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="date2">Date 2 (English - With Configuration)</label>
+                    <input type="text" class="form-control" id="date2">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="date3">Date 3 (Portuguese - No Configuration)</label>
+                    <input type="text" class="form-control" id="date3">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="date4">Date 4 (Portuguese - With Configuration)</label>
+                    <input type="text" class="form-control" id="date4">
+                </div>
+            </div>
+        </form>
+    </div>
+    <script type="text/javascript" src=" . . . flatpickr . . ."></script>
+    <script type="text/javascript" src=" . . . flatpickr PT . . ."></script>
+    <script type="text/javascript" src="js/datepicker.js"></script>
+ </body>
+</html>
