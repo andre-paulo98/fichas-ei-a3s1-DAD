@@ -20,7 +20,7 @@
         </tr>
     </thead>
     <tbody>
-    @foreach ($departments as $department)
+    <!--@foreach ($departments as $department)
         <tr>
             <td>{{$department->name}}</td>
             <td>{{$department->created_at}}</td>
@@ -36,7 +36,7 @@
                 </form>
             </td>
         </tr>
-    @endforeach
+    @endforeach-->
     </tbody>
     </table>
 @else
@@ -44,5 +44,6 @@
 @endif
 @endsection
 @section('pagescript')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js" integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg==" crossorigin="anonymous"></script>
     <script src="/js/departments.js"></script>
 @endsection

@@ -22,7 +22,7 @@
         </tr>
     </thead>
     <tbody>
-    @foreach ($users as $user)
+    <!--@foreach ($users as $user)
         <tr>
             <td><a href="{{route('users.show',$user)}}">{{$user->name}}</a></td>
             <td>{{$user->email}}</td>
@@ -40,11 +40,20 @@
                 </form>
             </td>
         </tr>
-    @endforeach
+    @endforeach -->
     </tbody>
     </table>
-    {{ $users->links() }}
+    <!--{{ $users->links() }}-->
+    <nav>
+        <ul class="pagination">
+
+        </ul>
+    </nav>
 @else
     <h2>No users found</h2>
 @endif
+@endsection
+@section('pagescript')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js" integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg==" crossorigin="anonymous"></script>
+    <script src="/js/users.js"></script>
 @endsection

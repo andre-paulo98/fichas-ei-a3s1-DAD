@@ -54,18 +54,24 @@
         var tbodyElement = document.getElementsByTagName('tbody')[0]
         var CRSFToken = getCRSF_Token()
         departments.forEach(function (department) {
-            addRow(tbodyElement, CRSFToken, department.id, department.name, department.date)
+            addRow(tbodyElement, CRSFToken, department.id, department.name, department.created_at)
         })
     }
 
 
-    var departmentsToTest = [
+    /*var departmentsToTest = [
         { id: 430, name: 'Department Teste 430', date: '2017-08-04 10:06:46' },
         { id: 12333, name: 'Department Teste 12333', date: '2017-08-04 11:16:26' },
         { id: 333, name: 'Department Teste 333', date: '2017-08-04 13:06:21' },
         { id: 6633, name: 'Department Teste 6633', date: '2017-08-04 08:23:45' },
         { id: 178, name: 'Department Teste 178', date: '2017-08-04 21:45:52' }
-    ]
+    ]*/
+
+    axios.get('/api/departments').then(r => {
+        generateDepartmentsRows(r.data);
+    }).catch(e => {
+        console.error(e);
+    })
 
     // DESCOMENTAR PARA GERAR LINHAS DE DEPARTAMENTOS NO CLIENTE
     //generateDepartmentsRows(departmentsToTest)
