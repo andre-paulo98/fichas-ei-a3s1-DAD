@@ -51,5 +51,18 @@
     //                                               ["Name", "E-Mail", "Age", "Department", "Actions"]),
     //              ...
 
+    const fetchUsers = () => {
+        axios.get("/api/users").then(result => {
+
+            const datatable = new DataTable('#data_table', {data: transformDataFromAPItoDataTableData(result.data.data,
+                    ["name", "email", "age", "department", "id"], ["Nome", "Email", "Idade", "Departamento", "Ações"]
+                )})
+
+        }).catch(e => {
+            console.error(e);
+        })
+    }
+
+    fetchUsers();
 
 })()

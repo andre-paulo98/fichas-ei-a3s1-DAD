@@ -12,7 +12,7 @@ class DepartmentController extends Controller
     public function get()
     {
         $departments = Department::all();
-        //return DepartmentResource::collection($departments);
-        return $departments;
+        return DepartmentResource::collection($departments);
+        //return $departments;
     }
 }

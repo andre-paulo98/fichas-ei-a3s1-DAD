@@ -22,6 +22,11 @@ class UserController extends Controller
         return view('users.index', compact('users'));
     }
 
+    public function datatable()
+    {
+        return view('users.datatable');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

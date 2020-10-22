@@ -10,6 +10,7 @@ class DepartmentResource extends JsonResource
     public function toArray($request)
     {
         return [
+            "id" => $this->id,
             "name" => $this->name,
             "date" => (new Carbon($this->created_at))->toDateString(),
         ];

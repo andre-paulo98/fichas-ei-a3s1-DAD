@@ -26,3 +26,5 @@ Route::model('user', App\Models\User::class);
 Route::resource('users', UserController::class);
 
 Route::resource('departments', DepartmentController::class);
+
+Route::get("/datatable", [UserController::class, 'datatable']);

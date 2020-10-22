@@ -59,6 +59,9 @@
             newNode.type = 'submit'
             newNode.textContent = 'Delete'
             newNode.classList.add('btn', 'btn-xs', 'btn-danger')
+            newNode.setAttribute("data-id", id);
+            newNode.addEventListener('click', deleteUserListener);
+
             divNode.appendChild(newNode)
             formNode.appendChild(divNode)
             newtd.appendChild(formNode)
@@ -167,6 +170,14 @@
         }).catch(e => {
             console.error(e);
         })
+    }
+
+    const deleteUserListener = async (event) => {
+        event.preventDefault();
+        let id = event.target.getAttribute("data-id");
+        let response = await axios.delete("/api/users/"+id);
+        console.log(response)
+        fetchUsers();
     }
 
     fetchUsers();
