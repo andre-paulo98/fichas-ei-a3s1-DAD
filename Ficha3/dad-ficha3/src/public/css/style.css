@@ -1,0 +1,10 @@
+@charset "utf-8";
+
+/* Custom rules */
+.inline {
+    display: inline-block;
+}
+
+.error {
+    color: red;
+}

@@ -1,0 +1,34 @@
+version: "3.8"
+services:
+  web-server:
+    image: nginx:latest
+    container_name: dad_ficha3_webserver
+    volumes:
+      - ./src/:/var/www/html/
+      - ./nginx:/etc/nginx/conf.d/
+    ports:
+      - "8080:80"
+  php:
+    build: .
+    image: php_fpm_debug/7.4:custom
+    container_name: dad_ficha3_php
+    volumes:
+      - ./src/:/var/www/html/
+  
+  mysql-server:
+    image: mysql:5.7
+    container_name: dad_ficha3_database
+    environment:
+      MYSQL_DATABASE: 'laravel'
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: dad_ficha3_phpmyadmin
+    environment:
+      PMA_HOST: mysql-server
+      PMA_USER: root
+      PMA_PASSWORD: 
+      UPLOAD_LIMIT: 1073741824
+    ports:
+      - "5000:80"
