@@ -7,42 +7,18 @@
 <div>
     <h3 class="text-center">TITULO</h3>
     <br>
-    <h2>Current Player : JOGADOR ATUAL</h2>
+    <h2>Current Player: @{{ playerName }}</h2>
     <br>
 </div>
 <div class="game-zone-content">
-    <div class="alert alert-success" >
+    <div class="alert alert-success" v-show="showSuccess">
         <button type="button" class="close-btn" >&times;</button>
-        <strong>MENSAGEM &nbsp;&nbsp;&nbsp;&nbsp;<a>Restart</a></strong>
+        <strong>@{{ successMessage }} &nbsp;&nbsp;&nbsp;&nbsp;<a @click="restart()">Restart</a></strong>
     </div>
 
     <div class="board">
-        <div >
-            <img src="img/1.png">
-        </div>
-        <div >
-            <img src="img/2.png">
-        </div>
-        <div >
-            <img src="img/0.png">
-        </div>
-        <div >
-            <img src="img/2.png">
-        </div>
-        <div >
-            <img src="img/1.png">
-        </div>
-        <div >
-            <img src="img/0.png">
-        </div>
-        <div >
-            <img src="img/2.png">
-        </div>
-        <div >
-            <img src="img/0.png">
-        </div>
-        <div >
-            <img src="img/1.png">
+        <div v-for="(b, index) of board">
+            <img v-bind:src="'img/'+b+'.png'" @click="play(index)">
         </div>
     </div>
     <hr>

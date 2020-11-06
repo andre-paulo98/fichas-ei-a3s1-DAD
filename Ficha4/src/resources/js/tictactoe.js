@@ -10,7 +10,8 @@ const app = new Vue({
         showSuccess: false,
         successMessage: '',
         gameEnded: false,
-        board: [0, 0, 0, 0, 0, 0, 0, 0, 0]
+        board: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        currentPlayer: 1
     },
     methods: {
         // ----------------------------------------------------------------------------------------
@@ -53,12 +54,37 @@ const app = new Vue({
                 }
             })
             return returnValue
-        }
+        },
         // ----------------------------------------------------------------------------------------
         // GAME LOGIC - END
         // ----------------------------------------------------------------------------------------
+        play: function(index) {
+            if(this.board[index] === 0 && !this.gameEnded) {
+                Vue.set(this.board, index, this.currentPlayer);
+
+                this.checkGameEnded();
+
+                if(!this.gameEnded)
+                    this.currentPlayer = this.currentPlayer === 1 ? 2 : 1;
+            }
+        },
+        restart: function () {
+            this.successMessage = ''
+            this.showSuccess = false
+            this.gameEnded = false
+
+            this.currentPlayer = 1;
+
+            this.board = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+            /*for (let i = 0; i < this.board.length; i++) {
+                Vue.set(this.board, i, 0);
+            }*/
+        }
     },
     computed: {
-
+        playerName() {
+            return "Player " + this.currentPlayer
+        }
     }
 })
